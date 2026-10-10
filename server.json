@@ -1,0 +1,20 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
+  "name": "io.github.Owaid0723666/onomeo-mcp",
+  "title": "onomeo",
+  "description": "Ask free LLMs (DeepSeek, GLM, Gemini, Mistral) for a second opinion from any MCP client.",
+  "version": "0.1.0",
+  "repository": { "url": "https://github.com/Owaid0723666/onomeo-mcp", "source": "github" },
+  "websiteUrl": "https://onomeo.com/?utm_source=mcp",
+  "packages": [
+    {
+      "registryType": "mcpb",
+      "identifier": "https://github.com/Owaid0723666/onomeo-mcp/releases/download/v0.1.0/onomeo-mcp.mcpb",
+      "fileSha256": "3810f6fdb2b50b344c80c8f86b96d561fbd4c850c6834f471d338687f326484b",
+      "transport": { "type": "stdio" },
+      "environmentVariables": [
+        { "name": "ONOMEO_API_KEY", "description": "API key from https://onomeo.com (free to create)", "isRequired": true, "isSecret": true }
+      ]
+    }
+  ]
+}

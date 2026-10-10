@@ -1,0 +1,38 @@
+{
+  "manifest_version": "0.3",
+  "name": "onomeo-mcp",
+  "display_name": "onomeo",
+  "version": "0.1.0",
+  "description": "Ask free LLMs (DeepSeek, GLM, Gemini, Mistral and more) for a second opinion.",
+  "long_description": "Lets your assistant ask other models through onomeo, an OpenAI-compatible API where a rotating set of models is free to call with no credit card. onomeo is in public beta: not every feature is guaranteed to work, and feedback is very welcome.",
+  "author": { "name": "onomeo", "email": "hello@onomeo.com", "url": "https://onomeo.com" },
+  "repository": { "type": "git", "url": "https://github.com/Owaid0723666/onomeo-mcp" },
+  "homepage": "https://onomeo.com/?utm_source=mcp",
+  "support": "https://github.com/Owaid0723666/onomeo-mcp/issues",
+  "server": {
+    "type": "node",
+    "entry_point": "index.mjs",
+    "mcp_config": {
+      "command": "node",
+      "args": ["${__dirname}/index.mjs"],
+      "env": { "ONOMEO_API_KEY": "${user_config.api_key}" }
+    }
+  },
+  "tools": [
+    { "name": "list_models", "description": "List the free and pay-as-you-go models served right now, with the free call limit." },
+    { "name": "ask_model", "description": "Ask one model and return its answer." },
+    { "name": "compare_models", "description": "Ask 2-4 models the same question and return the answers side by side." }
+  ],
+  "user_config": {
+    "api_key": {
+      "type": "string",
+      "title": "onomeo API key",
+      "description": "Create a free key at https://onomeo.com",
+      "sensitive": true,
+      "required": true
+    }
+  },
+  "keywords": ["llm", "second-opinion", "free-llm-api", "openai-compatible"],
+  "license": "MIT",
+  "compatibility": { "runtimes": { "node": ">=20.0.0" } }
+}

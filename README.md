@@ -43,6 +43,8 @@ Cursor, Claude Desktop, Cline, Windsurf and other clients that read an `mcpServe
 }
 ```
 
+Claude Desktop: download `onomeo-mcp.mcpb` from the [latest release](https://github.com/Owaid0723666/onomeo-mcp/releases/latest), open it, and paste your key when asked.
+
 ## Limits and pricing
 
 Checked on 2026-10-10; `list_models` always returns the live values.
