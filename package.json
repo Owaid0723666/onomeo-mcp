@@ -1,0 +1,18 @@
+{
+  "name": "onomeo-mcp",
+  "version": "0.1.0",
+  "description": "MCP server for onomeo: ask free LLMs (DeepSeek, GLM, Gemini, Mistral and more) for a second opinion from Claude Code, Cursor, Cline or any MCP client.",
+  "type": "module",
+  "bin": { "onomeo-mcp": "index.mjs" },
+  "files": ["index.mjs", "README.md", "LICENSE"],
+  "scripts": { "test": "node test.mjs" },
+  "engines": { "node": ">=20" },
+  "keywords": ["mcp", "mcp-server", "model-context-protocol", "llm", "free-llm-api", "openai-compatible", "second-opinion"],
+  "homepage": "https://onomeo.com/?utm_source=mcp",
+  "repository": { "type": "git", "url": "git+https://github.com/Owaid0723666/onomeo-mcp.git" },
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/server": "^2.3.1",
+    "zod": "^4.2.0"
+  }
+}
