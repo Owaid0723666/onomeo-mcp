@@ -1,4 +1,5 @@
 test.mjs
 .github/
 server.json
+glama.json
 *.mcpb
