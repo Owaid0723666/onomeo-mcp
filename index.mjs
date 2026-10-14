@@ -43,7 +43,7 @@ server.registerTool(
   {
     description: 'List the models onomeo serves right now: which are free to call, which are pay-as-you-go, and the current free call limit. Works without an API key.',
     inputSchema: z.object({}),
-    annotations: { readOnlyHint: true, openWorldHint: true },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: true, openWorldHint: true },
   },
   async () => {
     try {
@@ -77,7 +77,8 @@ server.registerTool(
       model: z.string().default('auto').describe('Model id from list_models. Defaults to "auto".'),
       system,
     }),
-    annotations: { readOnlyHint: true, openWorldHint: true },
+    /* changes nothing, but each call uses up one free call (or balance), so asking again is not free of effect */
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: false, openWorldHint: true },
   },
   async ({ prompt, model, system }) => {
     const r = await ask(model, prompt, system);
@@ -94,7 +95,7 @@ server.registerTool(
       models: z.array(z.string()).min(2).max(4).describe('Model ids from list_models.'),
       system,
     }),
-    annotations: { readOnlyHint: true, openWorldHint: true },
+    annotations: { readOnlyHint: true, destructiveHint: false, idempotentHint: false, openWorldHint: true },
   },
   async ({ prompt, models, system }) => {
     const results = await Promise.all(models.map((m) => ask(m, prompt, system)));

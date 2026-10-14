@@ -1,4 +1,4 @@
-test.mjs
+test/
 .github/
 server.json
 glama.json

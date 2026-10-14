@@ -5,7 +5,7 @@
   "type": "module",
   "bin": { "onomeo-mcp": "index.mjs" },
   "files": ["index.mjs", "README.md", "LICENSE"],
-  "scripts": { "test": "node test.mjs" },
+  "scripts": { "test": "node test/server.test.mjs" },
   "engines": { "node": ">=20" },
   "keywords": ["mcp", "mcp-server", "model-context-protocol", "llm", "free-llm-api", "openai-compatible", "second-opinion"],
   "homepage": "https://onomeo.com/?utm_source=mcp",

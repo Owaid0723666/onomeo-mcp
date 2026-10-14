@@ -4,6 +4,7 @@ import assert from 'node:assert/strict';
 import { spawn } from 'node:child_process';
 import { createServer } from 'node:http';
 import { createInterface } from 'node:readline';
+import { fileURLToPath } from 'node:url';
 
 const live = process.env.ONOMEO_LIVE === '1';
 
@@ -23,7 +24,7 @@ const stub = createServer((req, res) => {
 });
 
 async function session(env, run) {
-  const child = spawn(process.execPath, ['index.mjs'], { env: { ...process.env, ...env }, stdio: ['pipe', 'pipe', 'inherit'] });
+  const child = spawn(process.execPath, [fileURLToPath(new URL('../index.mjs', import.meta.url))], { env: { ...process.env, ...env }, stdio: ['pipe', 'pipe', 'inherit'] });
   const pending = new Map();
   createInterface({ input: child.stdout }).on('line', (line) => {
     const msg = JSON.parse(line);
